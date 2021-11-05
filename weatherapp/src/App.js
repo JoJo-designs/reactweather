@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState} from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+export default function App() {
+    const [weatherData, setWeatherData] = useState('')
+
+    const getWeather = () => {
+        if (weatherData === '') {
+            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=43.7001&lon=-79.4163&exclude=minutely,hourly,alerts&units=metric&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data)
+            });
+        }};
+
+    return (
+        <div>
+            {getWeather()}
+            <p>this is an app</p>
+        </div>
+    )
 }
-
-export default App;
