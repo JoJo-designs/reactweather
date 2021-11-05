@@ -18,7 +18,7 @@ export default function SearchBar() {
         }
     }
 
-    const getWeather = () => {
+    const getGeo = () => {
             fetch(`https://api.openweathermap.org/geo/1.0/direct?q=toronto&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
             .then((res) => res.json())
             .then((data) => {
@@ -26,12 +26,16 @@ export default function SearchBar() {
                 setLon(data[0].lon)
                 console.log(lat, lon)
             });
-            fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
+            getWeather()
+        };
+
+    const getWeather = () => {
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data)
-            })
-        };
+            });
+    };
 
         return (
             <div>
@@ -43,7 +47,7 @@ export default function SearchBar() {
                 onChange={handleChange}
                 >
                 </input>
-                <button onClick={getWeather} >Search</button>
+                <button onClick={getGeo} >Search</button>
             </div>    
         )
 }
