@@ -5,6 +5,7 @@ import { History } from './history';
 export default function SearchBar() {
     
     const [cityName, setCityName] = useState('');
+    const [searchCity, setSearchCity] = useState('')
     const [weatherData, setWeatherData] = useState('')
 
     
@@ -53,6 +54,8 @@ export default function SearchBar() {
           );
       };
 
+      console.log(searchCity)
+
         return (
             <div>
                 <input
@@ -64,7 +67,7 @@ export default function SearchBar() {
                 >
                 </input>
                 <button onClick={getGeo} >Search</button>
-                <History />
+                <History searchCity={searchCity} setSearchCity={setSearchCity}/>
             </div>    
         )
 }
