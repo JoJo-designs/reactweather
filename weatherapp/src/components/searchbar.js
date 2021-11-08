@@ -1,4 +1,5 @@
 import React, { useState} from 'react';
+import { useIndexedDB } from 'react-indexed-db';
 
 export default function SearchBar() {
     
@@ -6,7 +7,6 @@ export default function SearchBar() {
     const [weatherData, setWeatherData] = useState('')
 
     
-
     const handleChange = (event) => {
         const { target } = event;
         const inputValue = target.value;
@@ -14,7 +14,6 @@ export default function SearchBar() {
 
         if (inputType === "cityName") {
             setCityName(inputValue)
-            console.log(cityName)
         }
     }
 
@@ -22,8 +21,7 @@ export default function SearchBar() {
         try {
            const res = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
             const data = await res.json();
-            console.log(data)
-        getWeather(data)
+            getWeather(data)
         } catch (error) {
             console.log(error)
         }
@@ -34,22 +32,25 @@ export default function SearchBar() {
          try {
             const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=minutely,hourly,alerts&units=metric&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
             const weather = await res.json();
+            setWeatherData(weather)
             console.log(weather)
          } catch(error) {
              console.log(error)
          }
-         
+         NewHistory(data)
      }
 
-    // const getWeather = (data) => {
-    //     console.log(data)
-    //     console.log(data[0].lat)
-        // fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data.lon[0]}&exclude=minutely,hourly,alerts&units=metric&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
-        //     .then((res) => res.json())
-        //     .then((data) => {
-        //         console.log(data)
-        //     });
-    // };
+      const NewHistory = (data) => {
+          const { add } = useIndexedDB('cities')
+          add({cityName: cityName, lat: data[0].lat, lon: data[0].lon}).then(
+            event => {
+                console.log('ID Generated: ', event);
+              },
+              error => {
+                  console.log(error);
+              }
+          );
+      };
 
         return (
             <div>
