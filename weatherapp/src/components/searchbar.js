@@ -1,5 +1,6 @@
 import React, { useState} from 'react';
 import { useIndexedDB } from 'react-indexed-db';
+import { History } from './history';
 
 export default function SearchBar() {
     
@@ -63,6 +64,7 @@ export default function SearchBar() {
                 >
                 </input>
                 <button onClick={getGeo} >Search</button>
+                <History />
             </div>    
         )
 }
