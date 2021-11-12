@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useIndexedDB } from 'react-indexed-db';
-// import { History } from './history';
 import DataBody from './databody';
 
 export default function SearchBar(weatherDataB) {
@@ -54,19 +53,24 @@ export default function SearchBar(weatherDataB) {
           );
       };
 
+      useEffect(() => {
+        console.log(weatherDataB)
+        if(weatherDataB !== '') {
+            setWeatherData(weatherDataB)
+            console.log("if activated")
+        }
+      }, [weatherDataB])
+
       const check = () => {
           console.log(weatherDataB)
-          if(weatherDataB === !false) {
+          if(weatherDataB !== '') {
               setWeatherData(weatherDataB)
               console.log("if activated")
           }
       }
 
-      
-
         return (
             <div>
-                {check()}
                 <input
                 placeholder="Search a City"
                 value={cityName}
