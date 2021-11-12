@@ -1,14 +1,15 @@
-import React, { useState} from 'react';
+import React, { useState } from 'react';
 import { useIndexedDB } from 'react-indexed-db';
-import { History } from './history';
+// import { History } from './history';
+import DataBody from './databody';
 
-export default function SearchBar() {
+export default function SearchBar(weatherDataB) {
     
     const [cityName, setCityName] = useState('');
     const [searchCity, setSearchCity] = useState('')
     const [weatherData, setWeatherData] = useState('')
 
-    
+
     const handleChange = (event) => {
         const { target } = event;
         const inputValue = target.value;
@@ -35,7 +36,6 @@ export default function SearchBar() {
             const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data[0].lat}&lon=${data[0].lon}&exclude=minutely,hourly,alerts&units=metric&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
             const weather = await res.json();
             setWeatherData(weather)
-            console.log(weather)
          } catch(error) {
              console.log(error)
          }
@@ -54,10 +54,19 @@ export default function SearchBar() {
           );
       };
 
-      console.log(searchCity)
+      const check = () => {
+          console.log(weatherDataB)
+          if(weatherDataB === !false) {
+              setWeatherData(weatherDataB)
+              console.log("if activated")
+          }
+      }
+
+      
 
         return (
             <div>
+                {check()}
                 <input
                 placeholder="Search a City"
                 value={cityName}
@@ -67,7 +76,12 @@ export default function SearchBar() {
                 >
                 </input>
                 <button onClick={getGeo} >Search</button>
-                <History searchCity={searchCity} setSearchCity={setSearchCity}/>
+                { weatherData ? 
+                <DataBody weatherData={weatherData}/>
+                :
+                <p> look up data </p>
+                }
+                
             </div>    
         )
 }
