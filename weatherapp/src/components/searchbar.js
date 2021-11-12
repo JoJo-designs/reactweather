@@ -56,18 +56,10 @@ export default function SearchBar(weatherDataB) {
       useEffect(() => {
         console.log(weatherDataB)
         if(weatherDataB !== '') {
-            setWeatherData(weatherDataB)
+            setWeatherData(weatherDataB.weatherDataB)
             console.log("if activated")
         }
       }, [weatherDataB])
-
-      const check = () => {
-          console.log(weatherDataB)
-          if(weatherDataB !== '') {
-              setWeatherData(weatherDataB)
-              console.log("if activated")
-          }
-      }
 
         return (
             <div>
@@ -80,12 +72,7 @@ export default function SearchBar(weatherDataB) {
                 >
                 </input>
                 <button onClick={getGeo} >Search</button>
-                { weatherData ? 
                 <DataBody weatherData={weatherData}/>
-                :
-                <p> look up data </p>
-                }
-                
             </div>    
         )
 }

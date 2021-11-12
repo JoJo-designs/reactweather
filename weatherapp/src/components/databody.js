@@ -5,7 +5,8 @@ export default function DataBody(weatherData) {
 
     return (
         <div>
-            <p>this is the data</p>
+            <p>okay</p>
         </div>
     )
+   
 }
