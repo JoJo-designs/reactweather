@@ -4,6 +4,8 @@ import React, { useState, useEffect } from 'react';
 export default function DataBody(weatherData) {
 
     const [dataExsit, setDataExsit] = useState('')
+    const [city, setCity] = useState('')
+    
     
     useEffect(() => {
         console.log(weatherData)
@@ -13,20 +15,13 @@ export default function DataBody(weatherData) {
         }
     }, [weatherData])
 
-    // const build = () => {
-    //     console.log(weatherData)
-    //     if (weatherData.weatherData !== '') {
-    //         console.log("data")
-    //     } else {
-    //         console.log("no Data yet")
-    //     }
-    // }
-
-
     return (
         <div>
             { dataExsit ? 
-                <div> We have data </div> 
+                <div> 
+                    <h2>{weatherData.weatherData.timezone.split("/").pop()}</h2>
+                    <h3>temp: {weatherData.weatherData.current.temp}</h3>
+                </div> 
             :
                 <div> We don't have data</div> 
             }
