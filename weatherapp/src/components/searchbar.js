@@ -16,6 +16,7 @@ export default function SearchBar(weatherDataB) {
 
         if (inputType === "cityName") {
             setCityName(inputValue)
+            setSearchCity(inputValue)
         }
     }
 
@@ -54,10 +55,9 @@ export default function SearchBar(weatherDataB) {
       };
 
       useEffect(() => {
-        console.log(weatherDataB)
         if(weatherDataB !== '') {
             setWeatherData(weatherDataB.weatherDataB)
-            console.log("if activated")
+            setSearchCity(weatherDataB.citiesName)
         }
       }, [weatherDataB])
 
@@ -72,7 +72,7 @@ export default function SearchBar(weatherDataB) {
                 >
                 </input>
                 <button onClick={getGeo} >Search</button>
-                <DataBody weatherData={weatherData}/>
+                <DataBody weatherData={weatherData} searchCity={searchCity}/>
             </div>    
         )
 }

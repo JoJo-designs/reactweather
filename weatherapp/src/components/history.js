@@ -6,15 +6,16 @@ export function History() {
     const { getAll } = useIndexedDB('cities');
     const [history, setHistory] = useState('')
     const [weatherDataB, setWeatherDataB] = useState('')
+    const [citiesName, setCitiesName] = useState('')
 
     useEffect(() => {
         getAll().then(data => {
             setHistory(data)
-            console.log(data)
         });
     }, []);
     
     const handleclick = (data) => {
+        setCitiesName(data.cityName)
         getWeather(data)
     }
 
@@ -30,7 +31,7 @@ export function History() {
 
     return (
         <div>
-            <SearchBar weatherDataB={weatherDataB}/>
+            <SearchBar weatherDataB={weatherDataB} citiesName={citiesName}/>
             { history ? 
             <div>
                 <h4> is history </h4>
