@@ -5,9 +5,8 @@ import SearchBar from './searchbar';
 export function History() {
     const { getAll } = useIndexedDB('cities');
     const [history, setHistory] = useState('')
-    const [weatherDataB, setWeatherDataB] = useState('')
-    const [citiesName, setCitiesName] = useState('')
-
+    const [itemInfo, SetItemInfo] = useState('')
+ 
     useEffect(() => {
         getAll().then(data => {
             setHistory(data)
@@ -15,23 +14,14 @@ export function History() {
     }, []);
     
     const handleclick = (data) => {
-        setCitiesName(data.cityName)
-        getWeather(data)
+        SetItemInfo(data)
+        console.log(data)
     }
 
-    async function getWeather(data) {
-        try {
-           const res = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${data.lat}&lon=${data.lon}&exclude=minutely,hourly,alerts&units=metric&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
-           const weather = await res.json();
-           setWeatherDataB(weather)
-        } catch(error) {
-            console.log(error)
-        }
-        }
 
     return (
         <div>
-            <SearchBar weatherDataB={weatherDataB} citiesName={citiesName}/>
+            <SearchBar itemInfo={itemInfo}/>
             { history ? 
             <div>
                 <h4> is history </h4>
