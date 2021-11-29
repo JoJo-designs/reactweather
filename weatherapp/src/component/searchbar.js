@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useIndexedDB } from 'react-indexed-db';
 import DataBody from './databody';
 
+
 export default function SearchBar(itemInfo) {
 
     console.log(itemInfo)

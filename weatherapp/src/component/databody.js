@@ -5,7 +5,7 @@ export default function DataBody(cityData) {
 
     console.log(cityData)
     
-    const [appData, setAppData] = useState('')
+    const [appData, setAppData] = useState()
 
     async function fetchData() {
         console.log(cityData.cityData.lat)
@@ -30,8 +30,8 @@ console.log(appData)
     return (
         <div>
              { appData ? <div> 
-                    <h1>{cityData.cityData.cityName}</h1>
-                    <h3>temp: {Math.round(appData.current.temp)}</h3>
+                    {/* <h1>{cityData.cityData.cityName}</h1>
+                    <h3>temp: {Math.round(appData.current.temp)}</h3> */}
                 </div>
                 : 
                 <div> We have no data</div>
