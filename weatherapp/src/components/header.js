@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import SearchBar from './searchbar';
 import Body from './body';
 
+
 export function Header() {
 
     const [cityData, setCityData] = useState({

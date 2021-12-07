@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useIndexedDB } from 'react-indexed-db';
 
 export default function SearchBar(props) {
 
@@ -18,6 +19,7 @@ export default function SearchBar(props) {
         try {
             const res = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${searchValue}&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
             const data = await res.json()
+            NewHistory(data)
             sendState(data)
         } catch (error) {
             console.log(error)
@@ -28,6 +30,18 @@ export default function SearchBar(props) {
         props.onChange(data)
     }
     
+         const NewHistory = (data) => {
+        console.log(data)
+        const { add } = useIndexedDB('cities')
+        add({cityName: searchValue, lat: data[0].lat, lon: data[0].lon}).then(
+            event => {
+                console.log('ID Generated: ', event)
+            },
+            error => {
+                console.log(error)
+            }
+        );
+    };
 
 
     return (
