@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import SearchBar from './searchbar';
 import Body from './body';
+import History from './history';
 
 
 export function Header() {
@@ -13,8 +14,11 @@ export function Header() {
     })
 
     function handleUpdate(data) {
-        console.log(data)
         setCityData({cityName: data[0].name, lat: data[0].lat, lon: data[0].lon, hasData: true})
+    }
+
+    function UpdateHistory(data) {
+        setCityData({cityName: data.cityName, lat: data.lat, lon: data.lon, hasData: true})
     }
 
     const isData = () => {
@@ -29,6 +33,7 @@ export function Header() {
     <div>
         <h1>Weather App</h1>
         <SearchBar cityData={cityData} onChange={handleUpdate}/>
+        <History cityData={cityData} onChange={UpdateHistory}/>
         <div>
             {isData()}
         </div>

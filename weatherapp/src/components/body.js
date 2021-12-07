@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
 export default function Body(cityData) {
-    console.log(cityData)
 
     const [ appData, setAppData ] = useState('')
 
