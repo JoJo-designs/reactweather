@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Moment from 'react-moment';
 
 export default function Body(cityData) {
 
@@ -21,15 +22,24 @@ export default function Body(cityData) {
         }
     }, [cityData]);
 
+    function upperCase() {
+        const name = cityData.cityData.cityName
+        const first = name.charAt(0).toUpperCase()
+        const removeFirst = name.slice(1)
+        return first+removeFirst
+    }
+
+
     return(
+        
         <div>
             { appData ?
             <div>
-                <h2>{cityData.cityData.cityName}</h2>
+                <h2>{upperCase()}</h2>
                 <h3>Current Forecast</h3>
-                <h3>temp: {Math.round(appData.current.temp)}</h3>
+                <Moment format="ddd MMM, D"></Moment>
+                <h3>temp: {Math.floor(appData.current.temp)}</h3>
             </div> 
-            
             :
             <h2>Waiting for data...</h2>
             }

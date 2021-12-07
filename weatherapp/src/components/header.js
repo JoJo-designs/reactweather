@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import SearchBar from './searchbar';
 import Body from './body';
 import History from './history';
+import '../styles/skeleton.css'
+import '../styles/style.css'
 
 
 export function Header() {
@@ -31,11 +33,23 @@ export function Header() {
 
     return (
     <div>
-        <h1>Weather App</h1>
+        <h1 className="header">Weather App</h1>
+        <div className="container">
+            {/* section is around everything */}
+        <section className="row">   
+            {/* this part is components that take a user input */}
+            <div className="sectionOne four columns ">
         <SearchBar cityData={cityData} onChange={handleUpdate}/>
         <History cityData={cityData} onChange={UpdateHistory}/>
-        <div>
+            </div>
+
+        {/* this part doesn't take user inputs */}
+         <div className="sectionTwo eight columns">
             {isData()}
+        </div>
+
+        </section> 
+
         </div>
     </div>
     );
