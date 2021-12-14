@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useIndexedDB } from 'react-indexed-db';
+import '../styles/searchbar.css'
 
 export default function SearchBar(props) {
 
@@ -47,6 +48,7 @@ export default function SearchBar(props) {
     return (
         <div>
             <input 
+            className="inputbox"
             placeholder="Search a City"
             value={searchValue}
             name="searchValue"
@@ -54,7 +56,7 @@ export default function SearchBar(props) {
             onChange={handleChange}
             >  
             </input>
-            <button onClick={getGeo}>Search</button>
+            <button onClick={getGeo} className="search">Search</button>
         </div>
     )
 }

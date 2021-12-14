@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'react-moment';
+import scatteredClouds from './images/802.svg'
+import sunny from './images/800.svg'
+import brokenClouds from './images/803.svg'
 
 export default function Body(cityData) {
 
@@ -29,6 +32,18 @@ export default function Body(cityData) {
         return first+removeFirst
     }
 
+    const selectImage = () => {
+        console.log(appData.current.weather[0].id)
+        if (appData.current.weather[0].id === 800) {
+            return <img src={sunny}></img>
+        }
+        if (appData.current.weather[0].id === 802) {
+            return <img src={scatteredClouds}></img>
+        }
+        if (appData.current.weather[0].id === 803) {
+            return <img src={brokenClouds}></img>
+        }
+    }
 
     return(
         
@@ -39,6 +54,7 @@ export default function Body(cityData) {
                 <h3>Current Forecast</h3>
                 <Moment format="ddd MMM, D"></Moment>
                 <h3>temp: {Math.floor(appData.current.temp)}</h3>
+                <div>{selectImage()}</div>
             </div> 
             :
             <h2>Waiting for data...</h2>
