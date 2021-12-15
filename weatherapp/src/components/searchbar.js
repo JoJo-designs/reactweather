@@ -46,7 +46,7 @@ export default function SearchBar(props) {
 
 
     return (
-        <div>
+        <div className="searchBox">
             <input 
             className="inputbox"
             placeholder="Search a City"
@@ -56,7 +56,7 @@ export default function SearchBar(props) {
             onChange={handleChange}
             >  
             </input>
-            <button onClick={getGeo} className="search">Search</button>
+            <button onClick={getGeo} className="searchBtn">Search</button>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useIndexedDB } from 'react-indexed-db';
+import '../styles/searchbar.css'
 
 export default function History(props) {
     const { getAll } = useIndexedDB('cities')
@@ -24,7 +25,7 @@ export default function History(props) {
             { history ? 
             <div>
                 {history.map((data) => (
-                    <button key={data.id} 
+                    <button className="historyBtns" key={data.id} 
                     onClick={() => handleClick(data)}
                     >{data.cityName}</button>
                 ))}

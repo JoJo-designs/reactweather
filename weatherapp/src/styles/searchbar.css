@@ -1,9 +1,42 @@
-.inputbox {
-    background-color: indianred;
+.sectionOne {
+    background-color: white;
+    padding: 10px;
 }
 
-.search {
-    background-color: ghostwhite;
+.searchBox {
+    max-height: 30px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.inputbox {
+    width: 75%;
+    border: 1px #204f68 solid;
+    font-size: 20px;
+}
+
+
+.searchBtn {
+    background-color: #204f68;
+    color: white;
     border: none;
-    font-size: 10px;
+    font-size: 20px;
+    padding: 2px 2px;
+    
+}
+
+.historyBtns {
+    display: block;
+    width: 97%;
+    height: 40px;
+    font-size: 20px;
+    background-color:white;
+    border: 1px #204f68 solid;
+    margin-bottom: -1px;
+    text-transform: capitalize;
+}
+
+.historyBtns:hover {
+    background-color: #204f68;
+    color: white;
 }

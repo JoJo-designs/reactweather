@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'react-moment';
+import '../styles/body.css'
 import scatteredClouds from './images/802.svg'
 import sunny from './images/800.svg'
 import brokenClouds from './images/803.svg'
+import snow from './images/601.svg'
+import lightRain from './images/501.svg'
+
 
 export default function Body(cityData) {
 
@@ -25,12 +29,7 @@ export default function Body(cityData) {
         }
     }, [cityData]);
 
-    function upperCase() {
-        const name = cityData.cityData.cityName
-        const first = name.charAt(0).toUpperCase()
-        const removeFirst = name.slice(1)
-        return first+removeFirst
-    }
+
 
     // uvIndex will find the uv index and return it with the class that matches 
     // level
@@ -40,30 +39,39 @@ export default function Body(cityData) {
 
     // selectImage use weather data and returns a matching image. the ones the api
     // provides are very small.
-    const selectImage = () => {
+    const selectImage = () => { 
+        if (appData.current.weather[0].id === 501) {
+            return <img src={lightRain}></img>
+        }
+        if (appData.current.weather[0].id === 601) {
+            return <img src={snow}></img>
+        }
         if (appData.current.weather[0].id === 800) {
             return <img src={sunny}></img>
         }
         if (appData.current.weather[0].id === 802) {
             return <img src={scatteredClouds}></img>
         }
-        if (appData.current.weather[0].id === 803) {
+        if (appData.current.weather[0].id === 803 || 804) {
             return <img src={brokenClouds}></img>
         }
+       
     }
 
     return(
         
-        <div>
+        <div >
             { appData ?
-            <div>
-                <h2>{upperCase()} Current Forecast</h2>
+            <div className="container">
+                <h2 className="bodyHeader columns twelve">{cityData.cityData.cityName} Current Forecast</h2>
+                <div className="columns eight">
                 <Moment format="ddd MMM, D"></Moment>
                 <h3>temp: {Math.floor(appData.current.temp)}</h3>
                 <h3>humidity: {Math.round(appData.current.humidity)}</h3>
                 <h3>wind speed: {Math.round(appData.current.wind_speed)}</h3>
                 <div>{uvIndex()}</div>
-                <div>{selectImage()}</div>
+                </div>
+                <div className="columns three">{selectImage()}</div>
             </div> 
             :
             <h2>Waiting for data...</h2>

@@ -9,16 +9,3 @@ body {
     padding: 20px;
     text-align: center;
 }
-
-.sectionOne {
-    background-color: burlywood;
-    padding: 10px;
-    margin-left: 0px;
-}
-
-.sectionTwo {
-    background-color: forestgreen;
-}
-input {
-    background-color: rebeccapurple;
-}
