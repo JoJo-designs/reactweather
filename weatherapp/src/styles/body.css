@@ -4,12 +4,42 @@
 
 .bodyHeader {
     background-color: #204f68;
-    padding:15px;
+    font-size: 30px;
+    padding: 15px;
     color: white;
+    margin-bottom: 0px;
+}
+
+.dataBox {
+    margin-top: -15px;
+    padding: 15px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.data {
+    width: 60%;
+
+}
+
+.weatherImg {
+    width: 40%;
+    margin-top: 15px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
 }
  
+.uv {
+    padding:7px;
+    width: 30%;
+}
+
 .low {
     background-color: rgb(124, 201, 47);
+
 }
 
 .mid {
