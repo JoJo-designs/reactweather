@@ -13,3 +13,15 @@
     padding: 10px 10px;
     width: 100%;
 }
+
+.low {
+    background-color: rgb(124, 201, 47);
+}
+
+.mid {
+    background-color: rgb(238, 234, 26);
+}
+
+.high {
+    background-color: rgb(231, 35, 35);
+}

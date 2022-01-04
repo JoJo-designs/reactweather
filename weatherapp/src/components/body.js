@@ -35,6 +35,18 @@ export default function Body(cityData) {
     // level
     const uvIndex = () => {
         console.log(appData.current.uvi)
+        if (appData.current.uvi < 3) {
+            console.log("UV is Low")
+            return ( <h3 className="low">UV Index: {appData.current.uvi}</h3> )
+        }
+        if (appData.current.uvi < 4 &&  appData.current.uvi > 7) {
+            console.log("UV is Mid")
+            return ( <h3 className="mid">UV Index: {appData.current.uvi}</h3> )
+        }
+        if (appData.current.uvi > 8) {
+            console.log("UV is High")
+            return ( <h3 className="high">UV Index: {appData.current.uvi}</h3> )
+        }
     }
 
     // selectImage use weather data and returns a matching image. the ones the api

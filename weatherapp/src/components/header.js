@@ -35,7 +35,7 @@ export function Header() {
 
     return (
     <div style={{ backgroundImage: `url(${backgroundImg})`}}>
-        <h1 className="header">Weather App</h1>
+        <h1 className="header">Weather Dashboard</h1>
         
         <div className="container">
             {/* section is around everything */}
