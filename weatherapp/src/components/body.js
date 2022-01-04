@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Moment from 'react-moment';
 import '../styles/body.css'
+import '../styles/alignment.css'
 import scatteredClouds from './images/802.svg'
 import sunny from './images/800.svg'
 import brokenClouds from './images/803.svg'
@@ -74,7 +75,7 @@ export default function Body(cityData) {
         
         <div >
             { appData ?
-            <div className="container">
+            <div className="forcast">
                 <h2 className="bodyHeader columns twelve">{cityData.cityData.cityName} Current Forecast</h2>
                 <div className="columns eight">
                 <Moment format="ddd MMM, D"></Moment>

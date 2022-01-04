@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import SearchBar from './searchbar';
 import Body from './body';
 import History from './history';
-import '../styles/skeleton.css'
+// import '../styles/skeleton.css'
+import '../styles/alignment.css'
 import '../styles/style.css'
 import backgroundImg from './images/background.jpg'
 
@@ -37,17 +38,17 @@ export function Header() {
     <div style={{ backgroundImage: `url(${backgroundImg})`}}>
         <h1 className="header">Weather Dashboard</h1>
         
-        <div className="container">
+        <div>
             {/* section is around everything */}
-        <section className="row">   
+        <section class="container">   
             {/* this part is components that take a user input */}
-            <div className="sectionOne five columns ">
+            <div className="oneThrid">
         <SearchBar cityData={cityData} onChange={handleUpdate}/>
         <History cityData={cityData} onChange={UpdateHistory}/>
             </div>
 
         {/* this part doesn't take user inputs */}
-         <div className="sectionTwo seven columns">
+         <div className="twoThrids">
             {isData()}
         </div>
 

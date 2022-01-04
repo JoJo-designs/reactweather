@@ -1,0 +1,22 @@
+/* file will deal with alignment of elements I was using skeloton.css for this but I want thing to be layed out a little differantly  */
+
+.container{
+    display: flex;
+}
+
+.oneThrid { 
+    flex-wrap: wrap;
+    background-color:white;
+    padding: 15px;
+    width: 25%;
+    position: relative;
+    top: -43px;
+}
+
+.twoThrids {
+    flex-wrap: wrap;
+    width: 66%;
+    max-height: 300px;
+    margin-left: 3%;
+    margin-top: -30px;
+}

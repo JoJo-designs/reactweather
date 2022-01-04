@@ -1,19 +1,7 @@
-.sectionTwo {
+.forcast {
     background-color: white;
-    padding: 10px;
 }
-
-.bodyHeader {
-    text-transform: capitalize;
-    background-color: #204f68;
-    color: white;
-    margin-right: -20px;
-    position: relative;
-    top: -10px;
-    padding: 10px 10px;
-    width: 100%;
-}
-
+ 
 .low {
     background-color: rgb(124, 201, 47);
 }
