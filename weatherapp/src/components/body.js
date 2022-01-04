@@ -31,6 +31,10 @@ export default function Body(cityData) {
     }, [cityData]);
 
 
+    const capitalize = () => {
+        const name = cityData.cityData.cityName
+        return name[0].toUpperCase() + name.substring(1)
+    }
 
     // uvIndex will find the uv index and return it with the class that matches 
     // level
@@ -71,12 +75,13 @@ export default function Body(cityData) {
        
     }
 
+
     return(
         
         <div >
             { appData ?
-            <div className="forcast">
-                <h2 className="bodyHeader columns twelve">{cityData.cityData.cityName} Current Forecast</h2>
+            <div className="forecast">
+                <h2 className="bodyHeader">{capitalize()} Current Forecast</h2>
                 <div className="columns eight">
                 <Moment format="ddd MMM, D"></Moment>
                 <h3>temp: {Math.floor(appData.current.temp)}</h3>

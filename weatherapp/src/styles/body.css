@@ -1,5 +1,11 @@
-.forcast {
+.forecast {
     background-color: white;
+}
+
+.bodyHeader {
+    background-color: #204f68;
+    padding:15px;
+    color: white;
 }
  
 .low {
