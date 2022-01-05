@@ -39,7 +39,6 @@ export default function Body(cityData) {
     // uvIndex will find the uv index and return it with the class that matches 
     // level
     const uvIndex = () => {
-        console.log(appData.current.uvi)
         if (appData.current.uvi < 3) {
             console.log("UV is Low")
             return ( <h3 className=" uv low">UV Index: {appData.current.uvi}</h3> )
@@ -56,23 +55,55 @@ export default function Body(cityData) {
 
     // selectImage use weather data and returns a matching image. the ones the api
     // provides are very small.
-    const selectImage = () => { 
-        if (appData.current.weather[0].id === 500 || 501) {
-            return <img src={lightRain}></img>
-        }
-        if (appData.current.weather[0].id === 600 || 601) {
-            return <img src={snow}></img>
-        }
-        if (appData.current.weather[0].id === 800) {
-            return <img src={sunny}></img>
-        }
-        if (appData.current.weather[0].id ===  801 || 802) {
-            return <img src={scatteredClouds}></img>
-        }
-        if (appData.current.weather[0].id === 803 || 804) {
-            return <img src={brokenClouds}></img>
-        }
+    // const selectImage = () => { 
+    //     console.log(appData.current.weather[0].id)
+    //     if (appData.current.weather[0].id === 500 || 501) {
+    //         console.log("500 or 501")
+    //         return <img src={lightRain}></img>
+    //     }
+    //     if (appData.current.weather[0].id === 600 || 601) {
+    //         console.log("600 or 601")
+    //         return <img src={snow}></img>
+    //     }
+    //     if (appData.current.weather[0].id === 800) {
+    //         console.log("800")
+    //         return <img src={sunny}></img>
+    //     }
+    //     if (appData.current.weather[0].id ===  801 || 802) {
+    //         console.log("801 or 802")
+    //         return <img src={scatteredClouds}></img>
+    //     }
+    //     if (appData.current.weather[0].id === 803 || 804) {
+    //         console.log("803 or 804")
+    //         return <img src={brokenClouds}></img>
+    //     }
        
+    // }
+
+    const selectImage = () => { 
+        console.log(appData.current.weather[0])
+        console.log(appData.current.weather[0].id)
+        const id = appData.current.weather[0].id
+            if (id === 500 || id === 501) {
+                console.log("500 or 501")
+                return <img src={lightRain}></img>
+            }
+            if (id === 600 || id === 601) {
+                console.log("600 or 601")
+                return <img src={snow}></img>
+            }
+            if (id === 800) {
+                console.log("800")
+                return <img src={sunny}></img>
+            }
+            if (id === 801 || id === 802 || id === 803) {
+                console.log("801 or 802 or 804")
+                return <img src={scatteredClouds}></img>
+            }
+            if (id === 804) {
+                console.log("804")
+                return <img src={brokenClouds}></img>
+            }
     }
 
 
