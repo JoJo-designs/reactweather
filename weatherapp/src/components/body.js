@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 // import Moment from 'react-moment';
+import FiveDay from './fiveDay';
 import '../styles/body.css'
 import '../styles/alignment.css'
 import scatteredClouds from './images/802.svg'
@@ -78,7 +79,7 @@ export default function Body(cityData) {
                 return <img src={brokenClouds}></img>
             }
     }
-
+    
 
     return(
         
@@ -101,6 +102,12 @@ export default function Body(cityData) {
                 <p>{appData.current.weather[0].description}</p>
                 </div>
                 </div>
+
+                {/* this is the five day forecast */}
+                <div className="move">
+                    <FiveDay fiveDay={appData.daily}/>
+                </div>
+                
             </div> 
             :
             <h2>Waiting for data...</h2>

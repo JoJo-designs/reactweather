@@ -31,7 +31,6 @@ img {
     width: 150px;
     height: 150px;
 }
-
  
 .uv {
     padding:7px;
@@ -49,4 +48,9 @@ img {
 
 .high {
     background-color: rgb(231, 35, 35);
+}
+
+.move {
+    margin-top: 40px;
+    background-color: blue;
 }
