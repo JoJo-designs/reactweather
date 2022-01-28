@@ -40,7 +40,7 @@ export function Header() {
         
         <div className="bg">
             {/* section is around everything */}
-        <section class="container">   
+        <section className="container">   
             {/* this part is components that take a user input */}
             <div className="oneThrid">
         <SearchBar cityData={cityData} onChange={handleUpdate}/>

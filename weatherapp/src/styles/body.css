@@ -50,7 +50,40 @@ img {
     background-color: rgb(231, 35, 35);
 }
 
-.move {
-    margin-top: 40px;
-    background-color: blue;
+
+/* stuff in the fiveDay component */
+
+.five{
+    color: white;
+}
+
+.date {
+    color: white;
+}
+
+.fiveday {
+    /* margin-top: 10px; */
+    background-color: #204f68;
+}
+
+.fiveBoxes {
+    background-color: #204f68;
+    display: inline;
+    float: left;
+    width: 17%;
+    padding: 8px;
+    margin-left: 10px;
+}
+
+.centerImg {
+    margin-left: 20%;
+}
+
+.smallerImg{
+    width: 80px;
+    height: 80px;
+}
+
+.dailytext{
+    color: white;
 }

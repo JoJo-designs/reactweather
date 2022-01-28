@@ -8,6 +8,7 @@ import sunny from './images/800.svg'
 import brokenClouds from './images/803.svg'
 import snow from './images/601.svg'
 import lightRain from './images/501.svg'
+import heavyRain from './images/302.svg'
 
 
 export default function Body(cityData) {
@@ -58,25 +59,29 @@ export default function Body(cityData) {
     // provides are very small. 
     const selectImage = () => { 
         const id = appData.current.weather[0].id
-            if (id === 500 || id === 501) {
+
+        if (id === 302) {
+            return <img src={heavyRain} alt="cloud with light rain"></img>
+        }
+            if (id === 301 ||id === 500 || id === 501) {
                 console.log("500 or 501")
-                return <img src={lightRain}></img>
+                return <img src={lightRain} alt="cloud with light rain"></img>
             }
-            if (id === 600 || id === 601) {
+            if (id === 600 || id === 601 || id === 616) {
                 console.log("600 or 601")
-                return <img src={snow}></img>
+                return <img src={snow} alt="cloud with snow"></img>
             }
             if (id === 800) {
                 console.log("800")
-                return <img src={sunny}></img>
+                return <img src={sunny} alt="Sunny weather"></img>
             }
             if (id === 801 || id === 802 || id === 803) {
                 console.log("801 or 802 or 804")
-                return <img src={scatteredClouds}></img>
+                return <img src={scatteredClouds} alt="Cloudy weather"></img>
             }
             if (id === 804) {
                 console.log("804")
-                return <img src={brokenClouds}></img>
+                return <img src={brokenClouds} alt="Few Clouds"></img>
             }
     }
     
@@ -84,7 +89,8 @@ export default function Body(cityData) {
     return(
         
         <div >
-            { appData ?
+            { appData ?  
+            <div>
             <div className="forecast">
                 <h2 className="bodyHeader">{capitalize()} Current Forecast</h2>
                 {/* dataBox wraps all the data */}
@@ -102,11 +108,13 @@ export default function Body(cityData) {
                 <p>{appData.current.weather[0].description}</p>
                 </div>
                 </div>
+                </div>
 
-                {/* this is the five day forecast */}
-                <div className="move">
+                {/* this is the five day forecast  */}
+                <div>
                     <FiveDay fiveDay={appData.daily}/>
                 </div>
+    
                 
             </div> 
             :
