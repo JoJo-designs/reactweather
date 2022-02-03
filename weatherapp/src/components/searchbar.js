@@ -60,23 +60,38 @@ export default function SearchBar(props) {
     // advance search test
 
     const [ useAdvanced, setUseAdvanced ] = useState(false)
-
     const [advCity, setAdvCity] = useState('')
-    const [advCountry, setAdvCountry] = useState("")
+    const [advCountry, setAdvCountry] = useState('')
 
+    console.log(advCity, advCountry)
+
+    // changes the country
     const handleCountry = (event) => {
         const { target } = event;
         const inputValue = target.value;
+
         setAdvCountry(inputValue)
-    
     }
 
+    // changes the city name in advanced search
     const handleCityName = (event) => {
         const{ target } = event
         const inputValue = target.value;
 
        setAdvCity(inputValue)
+    }
 
+    async function getAdvanced() {
+        console.log("advance search active")
+        try {
+            const res = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${advCity},${advCountry}&appid=89e0b7e8dbbac9434ed75176dac7f8a3`)
+            const data = await res.json()
+            console.log(data)
+            sendState(data)
+        } catch (error) {
+            console.log(error)
+            alert("We ran into an issue. The inputted name may not be correct. please try again.")
+        }
     }
 
 
@@ -108,11 +123,11 @@ export default function SearchBar(props) {
                 ></input>
 
                 <select name="country" onChange={handleCountry}>
-                    <option value="ISO 3166-2:CA" >Canada</option>
-                    <option value="ISO 3166-2:US">USA</option>
-                    <option value="ISO 3166-2:GB">UK</option>
+                    <option value="CA" >Canada</option>
+                    <option value="US">USA</option>
+                    <option value="GB">UK</option>
                 </select>
-                <button>search</button>
+                <button onClick={getAdvanced}>search</button>
             </div> 
             : 
             <div>
