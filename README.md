@@ -12,6 +12,13 @@ The React Weather app is a more efficient version of the weather app I built in 
 
 [Git Hub repo](https://github.com/JoJo-designs/reactweather)
 
+
+##### find the original app  at the links below.
+
+[Original app live Version](https://jojo-designs.github.io/weatherApp/)
+
+[Original app Git Hub repo](https://github.com/JoJo-designs/weatherApp)
+
  ### Table of Content
 
   [Usage](#Usage)
@@ -26,11 +33,13 @@ The React Weather app is a more efficient version of the weather app I built in 
 
 ### Usage
 
-The app has a user friendly UI that allows a user to get weather data for major cities at the click of a button. Information is clearly displayed in a readable font. accessing past searches is as easy as clicking on the correct button.
+The app has a user friendly UI that allows a user to get weather data for cities at the click of a button. User can use an advanced search to look for cities that may have the same name in different countries. App displays the current weather conditions and a five day forecast.
 
 ## Improvements
 
-The goal was to make a app that use resources more efficiency. The biggest improvement was in the api calls. An issue the first app had was the limit in the api. The api couldn't return weather data just by a name. Instead the api would use the latitude and longitude values. In the original app made a call to a geo coding api then the weather api anytime data was requested. As you could imagine this was slow. The solution was to tap into the indexedDB built into the web browser. Using a npm package I created a database that could store the cities name, latitude and longitude values. Then building the history buttons using the data from the database. By doing this I was able avoid making two api call for searches from history element. Two api calls are made when looking up a new city.
+The goal was to make a app that use resources more efficiency. The biggest improvement was in the api calls. An issue the first app had was the limit in the api. The api couldn't return weather data just by a name. Instead the api would use the latitude and longitude values. In the original app made a call to a geo coding api then the weather api anytime data was requested. As you could imagine this was slow. The solution was to tap into the indexedDB built into the web browser. Using a npm package I created a database that could store the cities name, country, latitude and longitude values. Then building the history buttons using the data from the database. By doing this I was able avoid making two api call for searches from history element. Two api calls are still needed when looking up a new city.
+
+Another addition to the app was the ability to do more specific searches. The original app lacked the capability to select a country so cities that share a name such as London England and London Canada. The API would only ever return one and not the other. I created an advanced search function that allows the user to select a country and enter a city name. this allows the user greater control over the data that is return. The normal search function is still intact so user don't have to enter a country to get data. The advanced search is hidden when not in use so it doesn't clutter the UI.
 
 I found that once a request was made in the original app it took a very long time for data to appear. Manipulating the page with javascript forced the whole page to be rebuilt whenever a request was made. React solved this with it's ability to selectively rerender only the part that needed to be rerendered.
 
