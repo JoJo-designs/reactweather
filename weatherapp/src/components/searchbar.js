@@ -26,7 +26,7 @@ export default function SearchBar(props) {
             sendState(data)
         } catch (error) {
             console.log(error)
-            alert("We ran into an issue. The inputted name may not be correct. please try again.")
+            alert("We ran into an issue. The inputted name may not be correct or no value was entered. please try again.")
         }
     }
 
@@ -91,7 +91,7 @@ export default function SearchBar(props) {
             sendState(data)
         } catch (error) {
             console.log(error)
-            alert("We ran into an issue. The inputted name may not be correct. please try again.")
+            alert("We ran into an issue. The inputted name may not be correct or no value was entered. please try again.")
         }
     }
 
@@ -109,13 +109,14 @@ export default function SearchBar(props) {
             </input>
             <button onClick={getGeo} className="searchBtn">Search</button>
 
-            {/* Advanced search functionality */}
+            {/* Advanced search functionality Appears and disappears onClick */}
             
             { useAdvanced ? 
             <div className="advancedSearch">
                 <button className="Advance" onClick={changeState}>Advanced Search</button>
 
                 <input 
+                className="Advinputbox"
                 placeholder="Search a City"
                 value={advCity}
                 name="advCity"
@@ -123,12 +124,13 @@ export default function SearchBar(props) {
                 onChange={handleCityName}
                 ></input>
 
-                <select name="country" onChange={handleCountry}>
+                <select className="AdvSelect" name="country" onChange={handleCountry}>
+                    <option>Select One</option>
                     <option value="CA" >Canada</option>
                     <option value="US">USA</option>
                     <option value="GB">UK</option>
                 </select>
-                <button onClick={getAdvanced}>search</button>
+                <button className="searchBtn" onClick={getAdvanced}>Search</button>
             </div> 
             : 
             <div>

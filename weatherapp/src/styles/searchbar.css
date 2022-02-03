@@ -5,9 +5,8 @@
 }
 
 .searchBox {
-    max-height: 30px;
     width: 100%;
-    margin-bottom: 26px;
+    margin-bottom: 10px;
 }
 
 .inputbox {
@@ -32,16 +31,25 @@
     border: none;
     color: #204f68;
     margin: 4px;
+    display: block;
 }
 
-.advancedSearch {
-    margin-bottom: 30px;
-    background-color: blue;
+.Advinputbox {
+    width: 50%;
+    border: 1px #204f68 solid;
+    font-size: 19px;
+    margin-bottom: 8px;
+}
+
+.AdvSelect {
+    width: 40%;
+    border: 1px #204f68 solid;
+    font-size: 19px;
+    margin-left: 10px;
 }
 
 
 /* history */
-
 .historyBtns {
     display: block;
     width: 97%;
