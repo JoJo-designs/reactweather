@@ -24,6 +24,7 @@ export default function Body(cityData) {
             setAppData(weather)
         } catch (error) {
             console.log(error)
+            alert("We ran into an issue. Please try again.")
         }
     }
     useEffect( () => {

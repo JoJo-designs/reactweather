@@ -24,6 +24,7 @@ export default function SearchBar(props) {
             sendState(data)
         } catch (error) {
             console.log(error)
+            alert("We ran into an issue. The inputted name may not be correct. please try again.")
         }
     }
 
