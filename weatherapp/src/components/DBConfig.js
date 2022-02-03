@@ -7,6 +7,7 @@ export const DBConfig = {
             storeConfig: { keyPath: 'id', autoIncrement: true },
             storeSchema: [
                 {name: 'cityName', keyPath: 'cityName', option: {unique: true}},
+                {name: 'countryCode', keyPath: 'countryCode'},
                 {name: 'lat', keyPath: 'lat', option: {unique: true}},
                 {name: 'lon', keyPath: 'lon', option: {unique: true}}
             ]

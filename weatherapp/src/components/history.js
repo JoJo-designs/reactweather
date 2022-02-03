@@ -27,7 +27,7 @@ export default function History(props) {
                 {history.map((data) => (
                     <button className="historyBtns" key={data.id} 
                     onClick={() => handleClick(data)}
-                    >{data.cityName}</button>
+                    >{data.cityName}, {data.countryCode}</button>
                 ))}
             </div>
             :
