@@ -6,6 +6,8 @@ export default function SearchBar(props) {
 
     const [ searchValue, setSearchValue ] = useState('')
 
+
+
     const handleChange = (event) => {
         const { target } = event;
         const inputValue = target.value;
@@ -45,6 +47,38 @@ export default function SearchBar(props) {
         );
     };
 
+    const changeState = () => {
+        console.log("state will be changed")
+        if (useAdvanced === false) {
+            setUseAdvanced(true)
+        } else {
+            setUseAdvanced(false)
+        }
+    }
+
+
+    // advance search test
+
+    const [ useAdvanced, setUseAdvanced ] = useState(false)
+
+    const [advCity, setAdvCity] = useState('')
+    const [advCountry, setAdvCountry] = useState("")
+
+    const handleCountry = (event) => {
+        const { target } = event;
+        const inputValue = target.value;
+        setAdvCountry(inputValue)
+    
+    }
+
+    const handleCityName = (event) => {
+        const{ target } = event
+        const inputValue = target.value;
+
+       setAdvCity(inputValue)
+
+    }
+
 
     return (
         <div className="searchBox">
@@ -58,6 +92,33 @@ export default function SearchBar(props) {
             >  
             </input>
             <button onClick={getGeo} className="searchBtn">Search</button>
+
+            {/* Advanced search functionality */}
+            
+            { useAdvanced ? 
+            <div className="advancedSearch">
+                <button className="Advance" onClick={changeState}>Advanced Search</button>
+
+                <input 
+                placeholder="Search a City"
+                value={advCity}
+                name="advCity"
+                type="text"
+                onChange={handleCityName}
+                ></input>
+
+                <select name="country" onChange={handleCountry}>
+                    <option value="ISO 3166-2:CA" >Canada</option>
+                    <option value="ISO 3166-2:US">USA</option>
+                    <option value="ISO 3166-2:GB">UK</option>
+                </select>
+                <button>search</button>
+            </div> 
+            : 
+            <div>
+                <button className="Advance" onClick={changeState}>Advanced Search</button>
+            </div>}
+        
         </div>
     )
 }

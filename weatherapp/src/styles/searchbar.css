@@ -7,7 +7,7 @@
 .searchBox {
     max-height: 30px;
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 26px;
 }
 
 .inputbox {
@@ -24,6 +24,23 @@
     font-size: 20px;
     padding: 2px 2px;
 }
+
+/* Advanced search function styling */
+
+.Advance {
+    background-color: white;
+    border: none;
+    color: #204f68;
+    margin: 4px;
+}
+
+.advancedSearch {
+    margin-bottom: 30px;
+    background-color: blue;
+}
+
+
+/* history */
 
 .historyBtns {
     display: block;
