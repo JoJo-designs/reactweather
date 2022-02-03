@@ -98,22 +98,12 @@ export default function SearchBar(props) {
 
     return (
         <div className="searchBox">
-            <input 
-            className="inputbox"
-            placeholder="Search a City"
-            value={searchValue}
-            name="searchValue"
-            type="text"
-            onChange={handleChange}
-            >  
-            </input>
-            <button onClick={getGeo} className="searchBtn">Search</button>
 
             {/* Advanced search functionality Appears and disappears onClick */}
             
             { useAdvanced ? 
             <div className="advancedSearch">
-                <button className="Advance" onClick={changeState}>Advanced Search</button>
+                
 
                 <input 
                 className="Advinputbox"
@@ -131,10 +121,21 @@ export default function SearchBar(props) {
                     <option value="GB">UK</option>
                 </select>
                 <button className="searchBtn" onClick={getAdvanced}>Search</button>
+                <button className="Advance" onClick={changeState}>Basic Search</button>
             </div> 
             : 
             <div>
-                <button className="Advance" onClick={changeState}>Advanced Search</button>
+                <input 
+            className="inputbox"
+            placeholder="Search a City"
+            value={searchValue}
+            name="searchValue"
+            type="text"
+            onChange={handleChange}
+            >  
+            </input>
+            <button onClick={getGeo} className="searchBtn">Search</button>
+            <button className="Advance" onClick={changeState}>Advanced Search</button>
             </div>}
         
         </div>
