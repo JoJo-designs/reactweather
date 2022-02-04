@@ -13,7 +13,7 @@ export default function FiveDay(fiveday) {
 
 const convertTime = (dt) => {
     dt = dt * 1000
-    const format = moment(dt).format("MMMM Do YYYY")
+    const format = moment(dt).format("MMM Do YYYY")
     return format
 }
 

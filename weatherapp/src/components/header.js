@@ -3,8 +3,8 @@ import SearchBar from './searchbar';
 import Body from './body';
 import History from './history';
 // import '../styles/skeleton.css'
-import '../styles/alignment.css'
 import '../styles/style.css'
+import '../styles/alignment.css'
 import backgroundImg from './images/background.jpg'
 
 
@@ -35,10 +35,12 @@ export function Header() {
     }
 
     return (
-    <div style={{ backgroundImage: `url(${backgroundImg})`}}>
+
+        // style={{ backgroundImage: `url(${backgroundImg})`}}
+    <div>
         <h1 className="header">Weather Dashboard</h1>
         
-        <div className="bg">
+        <div>
             {/* section is around everything */}
         <section className="container">   
             {/* this part is components that take a user input */}
@@ -48,7 +50,7 @@ export function Header() {
             </div>
 
         {/* this part doesn't take user inputs */}
-         <div className="twoThrids">
+         <div className="twoThrids bg" style={{ backgroundImage: `url(${backgroundImg})`}}>
             {isData()}
         </div>
 

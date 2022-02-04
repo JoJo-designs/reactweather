@@ -16,8 +16,6 @@ body {
 }
 
 .bg {
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    position: relative;
+    top: -13px;
 }

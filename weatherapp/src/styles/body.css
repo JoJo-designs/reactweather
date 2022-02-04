@@ -1,5 +1,6 @@
 .forecast {
     background-color: white;
+    width: 97%;
 }
 
 .bodyHeader {
@@ -62,7 +63,6 @@ img {
 }
 
 .fiveday {
-    /* margin-top: 10px; */
     background-color: #204f68;
 }
 
@@ -70,9 +70,27 @@ img {
     background-color: #204f68;
     display: inline;
     float: left;
-    width: 17%;
+    width: 16%;
     padding: 8px;
-    margin-left: 10px;
+    margin-left: 8px;
+}
+
+@media screen and (max-width: 980px) {
+    .fiveBoxes { 
+        display: block;
+        margin-bottom: 8px;
+        width: 94%;
+    }
+
+    .centerImg {
+        width: 40%;
+        margin-top: 15px;
+    }
+    
+    .smallerImg {
+        width: 150px;
+        height: 150px;
+    }
 }
 
 .centerImg {

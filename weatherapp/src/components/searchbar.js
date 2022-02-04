@@ -91,7 +91,7 @@ export default function SearchBar(props) {
             sendState(data)
         } catch (error) {
             console.log(error)
-            alert("We ran into an issue. The inputted name may not be correct or no value was entered. please try again.")
+            alert("We ran into an issue. The inputted name may not be correct or no values were entered. please try again.")
         }
     }
 
@@ -115,7 +115,7 @@ export default function SearchBar(props) {
                 ></input>
 
                 <select className="AdvSelect" name="country" onChange={handleCountry}>
-                    <option>Select One</option>
+                    <option value="None">Country</option>
                     <option value="CA" >Canada</option>
                     <option value="US">USA</option>
                     <option value="GB">UK</option>
