@@ -22,27 +22,21 @@ const selectImage = (id) => {
     console.log(id)
     
         if (id === 301 ||id === 500 || id === 501) {
-            console.log("500 or 501")
             return <img className="smallerImg" src={lightRain} alt="cloud with light rain"></img>
         }
         if (id === 502) {
-            console.log("500 or 501")
             return <img className="smallerImg" src={heavyRain} alt="cloud with heavy rain"></img>
         }
         if (id === 600 || id === 601 || id === 616) {
-            console.log("600 or 601")
             return <img className="smallerImg" src={snow} alt="cloud with snow"></img>
         }
         if (id === 800) {
-            console.log("800")
             return <img className="smallerImg" src={sunny} alt="Sunny weather"></img>
         }
         if (id === 801 || id === 802 || id === 803) {
-            console.log("801 or 802 or 804")
             return <img className="smallerImg" src={scatteredClouds} alt="Cloudy weather"></img>
         }
         if (id === 804) {
-            console.log("804")
             return <img className="smallerImg" src={brokenClouds} alt="Few Clouds"></img>
         }
 }
@@ -52,11 +46,15 @@ const selectImage = (id) => {
            <h3 className="five">Five Day Forecast </h3>
            {day.map((value) => 
            <div className="fiveBoxes" key={value.dt}>
-               <p className="date">{convertTime(value.dt)}</p>
-                <div className="centerImg">{selectImage(value.weather[0].id)}</div>
+               <div className="infoBox">
+                    <p className="date">{convertTime(value.dt)}</p>
+                    <p className="dailytext">Temp: {Math.floor(value.temp.day)}</p>
+                    <p className="dailytext">Humidity: {Math.floor(value.humidity)}</p>
+               </div>
+                <aside className="centerImg">{selectImage(value.weather[0].id)}
                 <p className="dailytext">{value.weather[0].description}</p>
-                <p className="dailytext">Temp: {Math.floor(value.temp.day)}</p>
-                <p className="dailytext">Humidity: {Math.floor(value.humidity)}</p>
+                </aside>
+                
            </div>
 
            )}
