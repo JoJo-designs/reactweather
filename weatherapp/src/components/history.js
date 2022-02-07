@@ -10,7 +10,7 @@ export default function History(props) {
         getAll().then(data => {
             setHistory(data)
         });
-    }, []);
+    }, [history]);
 
     const handleClick = (data) => {
         sendState(data)

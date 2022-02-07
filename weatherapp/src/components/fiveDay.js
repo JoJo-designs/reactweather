@@ -24,6 +24,10 @@ const selectImage = (id) => {
             console.log("500 or 501")
             return <img className="smallerImg" src={lightRain} alt="cloud with light rain"></img>
         }
+        if (id === 502) {
+            console.log("500 or 501")
+            return <img className="smallerImg" src={lightRain} alt="cloud with light rain"></img>
+        }
         if (id === 600 || id === 601 || id === 616) {
             console.log("600 or 601")
             return <img className="smallerImg" src={snow} alt="cloud with snow"></img>
