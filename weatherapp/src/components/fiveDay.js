@@ -6,6 +6,7 @@ import sunny from './images/800.svg'
 import brokenClouds from './images/803.svg'
 import snow from './images/601.svg'
 import lightRain from './images/501.svg'
+import heavyRain from './images/502.svg'
 
 export default function FiveDay(fiveday) {
     let day = fiveday.fiveDay.splice(1,5)
@@ -26,7 +27,7 @@ const selectImage = (id) => {
         }
         if (id === 502) {
             console.log("500 or 501")
-            return <img className="smallerImg" src={lightRain} alt="cloud with light rain"></img>
+            return <img className="smallerImg" src={heavyRain} alt="cloud with heavy rain"></img>
         }
         if (id === 600 || id === 601 || id === 616) {
             console.log("600 or 601")

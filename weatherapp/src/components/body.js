@@ -60,30 +60,26 @@ export default function Body(cityData) {
     // provides are very small. 
     const selectImage = () => { 
         const id = appData.current.weather[0].id
-
-        if (id === 302) {
-            return <img src={heavyRain} alt="cloud with light rain"></img>
+        
+        if (id === 301 ||id === 500 || id === 501) {
+            return <img className="smallerImg" src={lightRain} alt="cloud with light rain"></img>
         }
-            if (id === 301 ||id === 500 || id === 501) {
-                console.log("500 or 501")
-                return <img src={lightRain} alt="cloud with light rain"></img>
-            }
-            if (id === 600 || id === 601 || id === 616) {
-                console.log("600 or 601")
-                return <img src={snow} alt="cloud with snow"></img>
-            }
-            if (id === 800) {
-                console.log("800")
-                return <img src={sunny} alt="Sunny weather"></img>
-            }
-            if (id === 801 || id === 802 || id === 803) {
-                console.log("801 or 802 or 804")
-                return <img src={scatteredClouds} alt="Cloudy weather"></img>
-            }
-            if (id === 804) {
-                console.log("804")
-                return <img src={brokenClouds} alt="Few Clouds"></img>
-            }
+        if (id === 502) {
+            return <img className="smallerImg" src={heavyRain} alt="cloud with heavy rain"></img>
+        }
+        if (id === 600 || id === 601 || id === 616) {
+            return <img className="smallerImg" src={snow} alt="cloud with snow"></img>
+        }
+        if (id === 800) {
+            return <img className="smallerImg" src={sunny} alt="Sunny weather"></img>
+        }
+        if (id === 801 || id === 802 || id === 803) {
+            return <img className="smallerImg" src={scatteredClouds} alt="Cloudy weather"></img>
+        }
+        if (id === 804) {
+            return <img className="smallerImg" src={brokenClouds} alt="Few Clouds"></img>
+        }
+      
     }
     
 
