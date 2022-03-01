@@ -63,7 +63,6 @@ export default function SearchBar(props) {
     const [advCity, setAdvCity] = useState('')
     const [advCountry, setAdvCountry] = useState('')
 
-    console.log(advCity, advCountry)
 
     // changes the country
     const handleCountry = (event) => {
